@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'SWFlipBoard_Example' do
+  pod 'SWFlipBoard', :path => '../'
+
+  target 'SWFlipBoard_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
