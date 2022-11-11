@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'SWFlipBoard'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of SWFlipBoard.'
+  s.summary          = 'flipBoard'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,13 +18,13 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  a component imitate flipBoard
                        DESC
 
   s.homepage         = 'https://github.com/121805186@qq.com/SWFlipBoard'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { '121805186@qq.com' => '121805186@qq.com' }
+  s.author           = { 'StevenWu' => '121805186@qq.com' }
   s.source           = { :git => 'https://github.com/121805186@qq.com/SWFlipBoard.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
@@ -32,11 +32,11 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'SWFlipBoard/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'SWFlipBoard' => ['SWFlipBoard/Assets/*.png']
-  # }
+  s.resource_bundles = {
+    'SWFlipBoard' => ['SWFlipBoard/Assets/*.png']
+  }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  #s.public_header_files = 'Pod/Classes/**/*.h'
+  #s.frameworks = 'UIKit'
+  s.dependency 'SnapKit', '~> 5.6.0'
 end

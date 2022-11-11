@@ -1,0 +1,23 @@
+PODS:
+  - SnapKit (5.6.0)
+  - SWFlipBoard (0.1.0):
+    - SnapKit (~> 5.6.0)
+
+DEPENDENCIES:
+  - SWFlipBoard (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
+
+EXTERNAL SOURCES:
+  SWFlipBoard:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
+  SWFlipBoard: 8d68215cbf5757c86776ca2fa7f8ceecb4698fc4
+
+PODFILE CHECKSUM: e8c4845d75df16ae61bc383795463745addfc6da
+
+COCOAPODS: 1.11.3

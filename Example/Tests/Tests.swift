@@ -1,5 +1,4 @@
 import XCTest
-import SWFlipBoard
 
 class Tests: XCTestCase {
     

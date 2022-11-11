@@ -1,0 +1,6 @@
+framework module SWFlipBoard {
+  umbrella header "SWFlipBoard-umbrella.h"
+
+  export *
+  module * { export * }
+}
