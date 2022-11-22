@@ -7,6 +7,14 @@
 
 import UIKit
 
+private let halfPi = Double.pi / 2
+private let transformM34 = {
+    var transform = CATransform3DIdentity
+    //Setting the deformed m34 can increase the three-dimensional sense
+    transform.m34 = -1 / 2000
+    return transform
+}()
+
 enum SWFlipImagePosition {
     case below
     case top
@@ -14,13 +22,6 @@ enum SWFlipImagePosition {
 }
 
 class SWFlipLayer: UIView {
-    private let halfPi = Double.pi / 2
-    private lazy var transformM34 = {
-        var transform = CATransform3DIdentity
-        //Setting the deformed m34 can increase the three-dimensional sense
-        transform.m34 = -1 / 800
-        return transform
-    }()
     private var flipDirection: SWFlipDirection!
     
     private var imageTopView:FlipImageView!
@@ -31,7 +32,7 @@ class SWFlipLayer: UIView {
     private var currentImage: UIImage!
     private var nextImage: UIImage!
     
-    var flipSuccess: (()->())!
+    var flipSuccess: ((_: Bool)->())!
 
     convenience init(flipDirection: SWFlipDirection, frame:CGRect, currentImage: UIImage, nextImage: UIImage){
         self.init()
@@ -136,21 +137,21 @@ class SWFlipLayer: UIView {
             if abs(pan.velocity(in: pan.view).y) > 500, absAngle < halfPi {
                 if flipDirection == .up {
                     UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseIn, animations: {
-                        self.imageBottomView.layer.transform = CATransform3DRotate(self.transformM34, self.halfPi, 1, 0, 0)
+                        self.imageBottomView.layer.transform = CATransform3DRotate(transformM34, halfPi, 1, 0, 0)
                     }, completion: { _ in
                         self.imageBottomView.isHidden = true
                         self.nextImageTopView.isHidden = false
-                        self.nextImageTopView.layer.transform = CATransform3DRotate(self.transformM34, -self.halfPi, 1, 0, 0)
-                        self.endFlipAnimation(duration: 0.1, from: self.halfPi)
+                        self.nextImageTopView.layer.transform = CATransform3DRotate(transformM34, -halfPi, 1, 0, 0)
+                        self.endFlipAnimation(duration: 0.1, from: halfPi)
                     })
                 } else {
                     UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseIn, animations: {
-                        self.imageTopView.layer.transform = CATransform3DRotate(self.transformM34, -self.halfPi, 1, 0, 0)
+                        self.imageTopView.layer.transform = CATransform3DRotate(transformM34, -halfPi, 1, 0, 0)
                     }, completion: { _ in
                         self.imageTopView.isHidden = true
                         self.nextImageBottomView.isHidden = false
-                        self.nextImageBottomView.layer.transform = CATransform3DRotate(self.transformM34, self.halfPi, 1, 0, 0)
-                        self.endFlipAnimation(duration: 0.1, from: self.halfPi)
+                        self.nextImageBottomView.layer.transform = CATransform3DRotate(transformM34, halfPi, 1, 0, 0)
+                        self.endFlipAnimation(duration: 0.1, from: halfPi)
                     })
                 }
             } else {
@@ -160,18 +161,17 @@ class SWFlipLayer: UIView {
     }
     
     private func endFlipAnimation(duration: CGFloat, from absAngle: CGFloat) {
+        isUserInteractionEnabled = false
+        flipSuccess(absAngle >= halfPi)
         UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions.curveEaseInOut, animations: { () -> Void in
-            if absAngle >= self.halfPi {
-                self.flipSuccess()
-            }
             if self.flipDirection == .up {
-                if absAngle >= self.halfPi {
+                if absAngle >= halfPi {
                     self.nextImageTopView.layer.transform = CATransform3DIdentity
                 } else {
                     self.imageBottomView.layer.transform = CATransform3DIdentity
                 }
             } else {
-                if absAngle >= self.halfPi {
+                if absAngle >= halfPi {
                     self.nextImageBottomView.layer.transform = CATransform3DIdentity
                 } else {
                     self.imageTopView.layer.transform = CATransform3DIdentity

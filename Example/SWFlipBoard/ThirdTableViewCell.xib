@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="191" id="KGk-i7-Jjw" customClass="ThirdTableViewCell" customModule="SWFlipBoard_Example" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="422" height="191"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="422" height="191"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="example2" translatesAutoresizingMaskIntoConstraints="NO" id="FR2-AN-Ewi">
+                        <rect key="frame" x="0.0" y="0.0" width="422" height="191"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2022年7月，上海杨浦区与香港中文大学签署合作框架协议，双方共建“香港中文大学上海中心”。今日，香港中文大学上海..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qls-g7-lGK">
+                        <rect key="frame" x="20" y="135" width="382" height="36"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11月魔都必看10大展览" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NeB-fR-HfZ">
+                        <rect key="frame" x="20" y="94" width="382" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="FR2-AN-Ewi" secondAttribute="bottom" id="2iH-1q-wke"/>
+                    <constraint firstItem="FR2-AN-Ewi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="5c9-jQ-0PL"/>
+                    <constraint firstAttribute="trailing" secondItem="Qls-g7-lGK" secondAttribute="trailing" constant="20" id="8dq-dW-72c"/>
+                    <constraint firstItem="Qls-g7-lGK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="ISG-qf-MsB"/>
+                    <constraint firstAttribute="bottom" secondItem="Qls-g7-lGK" secondAttribute="bottom" constant="20" id="T7H-wf-tda"/>
+                    <constraint firstItem="Qls-g7-lGK" firstAttribute="top" secondItem="NeB-fR-HfZ" secondAttribute="bottom" constant="20" id="bHt-ok-F5r"/>
+                    <constraint firstItem="FR2-AN-Ewi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="kMz-Ze-LiH"/>
+                    <constraint firstAttribute="trailing" secondItem="NeB-fR-HfZ" secondAttribute="trailing" constant="20" id="t6G-S4-A0I"/>
+                    <constraint firstAttribute="trailing" secondItem="FR2-AN-Ewi" secondAttribute="trailing" id="vLr-Dg-91t"/>
+                    <constraint firstItem="NeB-fR-HfZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="vNd-dH-syn"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="166.15384615384616" y="72.867298578199055"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="example2" width="683" height="1024"/>
+    </resources>
+</document>

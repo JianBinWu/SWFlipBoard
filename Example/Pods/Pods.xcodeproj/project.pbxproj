@@ -15,7 +15,7 @@
 		1D7658FB9B9A33F4F56C89CFFB41D5A7 /* ConstraintConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD101E65ADCCC341BCD3BFF777CA947C /* ConstraintConfig.swift */; };
 		2B3B7788DA3DBE54DD12430273F54BAD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		2D99F4EEC14A6EF4959574DD1FB5B681 /* SWFlipBoard-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E0DD08BFBB1DCAD449479813A165C92 /* SWFlipBoard-dummy.m */; };
-		309F6579EDB80D83D6EE2D219120C980 /* SWFlipBoard-SWFlipBoard in Resources */ = {isa = PBXBuildFile; fileRef = 0783CDEC28458DE24F53888AE630A4A2 /* SWFlipBoard-SWFlipBoard */; };
+		309F6579EDB80D83D6EE2D219120C980 /* SWFlipBoard.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0783CDEC28458DE24F53888AE630A4A2 /* SWFlipBoard.bundle */; };
 		3439604A8E76A0FA387A00CA35D29A9D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		3C52463D62451517346A6FC044266C32 /* ConstraintLayoutGuide+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04B678C00268C9CF7E410145D6F78AA /* ConstraintLayoutGuide+Extensions.swift */; };
 		4703151238A643769DCE79B1F9D1116A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
@@ -107,7 +107,7 @@
 		0072CC268C7456CC1DA6E8180975AB43 /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintViewDSL.swift; path = Sources/ConstraintViewDSL.swift; sourceTree = "<group>"; };
 		02732995CB94C03CB83E1935B434AD74 /* ConstraintDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDSL.swift; path = Sources/ConstraintDSL.swift; sourceTree = "<group>"; };
 		04FFD752E33ED93CD0B29FCA4A488C56 /* Pods-SWFlipBoard_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-SWFlipBoard_Tests"; path = Pods_SWFlipBoard_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0783CDEC28458DE24F53888AE630A4A2 /* SWFlipBoard-SWFlipBoard */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "SWFlipBoard-SWFlipBoard"; path = SWFlipBoard.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		0783CDEC28458DE24F53888AE630A4A2 /* SWFlipBoard.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SWFlipBoard.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A4B3092297166519217A25AD70D5341 /* ConstraintMaker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMaker.swift; path = Sources/ConstraintMaker.swift; sourceTree = "<group>"; };
 		0AFDF096C3836F945945C9FFDB5090F5 /* Constraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = Sources/Constraint.swift; sourceTree = "<group>"; };
 		0CB4E6539DC5C4551D07F90ED7AEA3CE /* SWFlipBoard-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SWFlipBoard-umbrella.h"; sourceTree = "<group>"; };
@@ -249,7 +249,7 @@
 				04FFD752E33ED93CD0B29FCA4A488C56 /* Pods-SWFlipBoard_Tests */,
 				979486118B3E90C08386079D57962701 /* SnapKit */,
 				389A916191D82A0F5AC9A2603D667CDD /* SWFlipBoard */,
-				0783CDEC28458DE24F53888AE630A4A2 /* SWFlipBoard-SWFlipBoard */,
+				0783CDEC28458DE24F53888AE630A4A2 /* SWFlipBoard.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -560,7 +560,7 @@
 			);
 			name = "SWFlipBoard-SWFlipBoard";
 			productName = SWFlipBoard;
-			productReference = 0783CDEC28458DE24F53888AE630A4A2 /* SWFlipBoard-SWFlipBoard */;
+			productReference = 0783CDEC28458DE24F53888AE630A4A2 /* SWFlipBoard.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -571,6 +571,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					DB59CB36BC15F169FAF3CC3C6B6BB7E3 = {
+						DevelopmentTeam = 82H543558Z;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -613,7 +618,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				309F6579EDB80D83D6EE2D219120C980 /* SWFlipBoard-SWFlipBoard in Resources */,
+				309F6579EDB80D83D6EE2D219120C980 /* SWFlipBoard.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -884,6 +889,7 @@
 			baseConfigurationReference = 14EA4BEB93FAE5627CE175308FCD461D /* SWFlipBoard.release.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SWFlipBoard";
+				DEVELOPMENT_TEAM = 82H543558Z;
 				IBSC_MODULE = SWFlipBoard;
 				INFOPLIST_FILE = "Target Support Files/SWFlipBoard/ResourceBundle-SWFlipBoard-SWFlipBoard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1026,6 +1032,7 @@
 			baseConfigurationReference = 22A7FEEC07D654E7BE2A3BE60DF15D24 /* SWFlipBoard.debug.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SWFlipBoard";
+				DEVELOPMENT_TEAM = 82H543558Z;
 				IBSC_MODULE = SWFlipBoard;
 				INFOPLIST_FILE = "Target Support Files/SWFlipBoard/ResourceBundle-SWFlipBoard-SWFlipBoard-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
