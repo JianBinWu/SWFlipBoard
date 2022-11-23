@@ -15,7 +15,13 @@ class HeaderView: UIView {
     private var listBtn: UIButton!
     private var searchBtn: UIButton!
     
-    var selectedIndex = 0
+    var selectedIndex = 0 {
+        didSet {
+            collectionView.scrollToItem(at: .init(row: selectedIndex, section: 0), at: .centeredHorizontally, animated: true)
+            collectionView.reloadData()
+        }
+    }
+    var scrollToPage: ((_: Int)->())!
     
     init() {
         super.init(frame: .zero)
@@ -48,9 +54,10 @@ class HeaderView: UIView {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.estimatedItemSize = .init(width: 50, height: 50)
-        layout.minimumLineSpacing = 20
-        layout.sectionInset = .init(top: 0, left: 20, bottom: 0, right: 0)
+//        layout.itemSize = .init(width: 80, height: 50)
+//        layout.minimumLineSpacing = 20
+        layout.sectionInset = .init(top: 0, left: 10, bottom: 0, right: 0)
+        layout.estimatedItemSize = .init(width: 150, height: 50)
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         addSubview(collectionView)
         collectionView.snp.makeConstraints { make in
@@ -66,9 +73,9 @@ class HeaderView: UIView {
     }
 }
 
-extension HeaderView: UICollectionViewDelegate, UICollectionViewDataSource {
+extension HeaderView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return titles.count
+        titles.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -78,7 +85,10 @@ extension HeaderView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if selectedIndex == indexPath.row {
+            return
+        }
         selectedIndex = indexPath.row
-        collectionView.reloadData()
+        scrollToPage(indexPath.row)
     }
 }

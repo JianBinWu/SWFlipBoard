@@ -35,6 +35,9 @@ class HomeViewController: UIViewController {
             make.right.equalTo(-20)
             make.height.equalTo(50)
         }
+        headerView.scrollToPage = { [weak self] in
+            self!.collectionView.scrollToItem(at: .init(row: $0, section: 0), at: .left, animated: true)
+        }
         headerView.layoutIfNeeded()
         
         let layout = UICollectionViewFlowLayout()
@@ -66,10 +69,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return collectionView.bounds.size
+        collectionView.bounds.size
     }
     
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        let index = scrollView.contentOffset.y / UIScreen().bounds.width
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let index = Int(scrollView.contentOffset.x / scrollView.bounds.width)
+        headerView.selectedIndex = index
     }
 }

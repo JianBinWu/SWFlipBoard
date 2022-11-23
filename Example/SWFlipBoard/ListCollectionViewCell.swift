@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ListCollectionViewCell: UICollectionViewCell {
     var label: UILabel!
@@ -18,16 +19,19 @@ class ListCollectionViewCell: UICollectionViewCell {
         label = UILabel()
         contentView.addSubview(label)
         label.snp.makeConstraints { make in
-            make.top.bottom.left.right.equalToSuperview()
+            make.left.right.top.bottom.equalToSuperview()
             make.height.equalTo(50)
         }
         label.font = .systemFont(ofSize: 18)
         label.textColor = .lightGray
+        label.textAlignment = .center
         
         indicator = UIView()
         contentView.addSubview(indicator)
         indicator.snp.makeConstraints { make in
-            make.left.bottom.right.equalToSuperview()
+            make.centerX.equalTo(label)
+            make.width.equalTo(label)
+            make.bottom.equalToSuperview()
             make.height.equalTo(5)
         }
         indicator.backgroundColor = .red
@@ -41,5 +45,16 @@ class ListCollectionViewCell: UICollectionViewCell {
         label.text = title
         label.textColor = isSelected ? .black : .lightGray
         indicator.isHidden = !isSelected
+    }
+    
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        super.preferredLayoutAttributesFitting(layoutAttributes)
+        self.setNeedsLayout()
+        self.layoutIfNeeded()
+        let size = self.contentView.systemLayoutSizeFitting(layoutAttributes.size)
+        var cellFrame = layoutAttributes.frame
+        cellFrame.size.width = size.width + 20
+        layoutAttributes.frame = cellFrame
+        return layoutAttributes
     }
 }
