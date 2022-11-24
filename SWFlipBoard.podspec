@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
   a component imitate flipBoard
                        DESC
 
-  s.homepage         = 'https://github.com/121805186@qq.com/SWFlipBoard'
+  s.homepage         = 'https://github.com/JianBinWu/SWFlipBoard'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'StevenWu' => '121805186@qq.com' }
-  s.source           = { :git => 'https://github.com/121805186@qq.com/SWFlipBoard.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/JianBinWu/SWFlipBoard.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'

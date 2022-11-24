@@ -54,8 +54,6 @@ class HeaderView: UIView {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-//        layout.itemSize = .init(width: 80, height: 50)
-//        layout.minimumLineSpacing = 20
         layout.sectionInset = .init(top: 0, left: 10, bottom: 0, right: 0)
         layout.estimatedItemSize = .init(width: 150, height: 50)
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
