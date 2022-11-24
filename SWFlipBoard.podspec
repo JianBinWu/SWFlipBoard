@@ -27,6 +27,7 @@ Pod::Spec.new do |s|
   s.author           = { 'StevenWu' => '121805186@qq.com' }
   s.source           = { :git => 'https://github.com/JianBinWu/SWFlipBoard.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.swift_version = '5'
 
   s.ios.deployment_target = '10.0'
 
