@@ -52,7 +52,7 @@ public class SWFlipBoard: UIView, UIGestureRecognizerDelegate {
 
     @objc private func flip(pan: UIPanGestureRecognizer) {
         let offSet = pan.velocity(in: pan.view)
-        //if pull down the first page then refresh
+        //if pull down the first page, refresh
         if offSet.y > 0 && pageIndex == 0 && pan.state == .began {
             refreshView = SWRefresh()
             insertSubview(refreshView!, belowSubview: currentPage)
