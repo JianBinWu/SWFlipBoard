@@ -144,7 +144,7 @@ public class SWFlipBoard: UIView, UIGestureRecognizerDelegate {
     public override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         let pan = gestureRecognizer as! UIPanGestureRecognizer
         let velocity = pan.velocity(in: self)
-        return fabs(velocity.y) > fabs(velocity.x)
+        return abs(velocity.y) > abs(velocity.x)
     }
 }
 
