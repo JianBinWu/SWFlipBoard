@@ -9,7 +9,6 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    
     var collectionView: UICollectionView!
     var headerView: HeaderView!
 
@@ -17,11 +16,16 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         initUI()
+        NotificationCenter.default.addObserver(self, selector: #selector(flipToTop), name: NSNotification.Name(rawValue: "flipToTop"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     func initUI() {
@@ -56,6 +60,11 @@ class HomeViewController: UIViewController {
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(FlipBoardCollectionViewCell.self, forCellWithReuseIdentifier: "FlipBoardCollectionViewCell")
     }
+    
+    @objc func flipToTop() {
+        let cell = collectionView.cellForItem(at: .init(row: headerView.selectedIndex, section: 0)) as! FlipBoardCollectionViewCell
+        cell.flipBoard.flipToTop()
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -65,6 +74,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FlipBoardCollectionViewCell", for: indexPath) as! FlipBoardCollectionViewCell
+        cell.title = headerView.titles[headerView.selectedIndex]
         return cell
     }
     

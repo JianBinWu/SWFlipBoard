@@ -35,8 +35,10 @@ enum SWFlipDirection {
 }
 
 public class SWFlipBoard: UIView, UIGestureRecognizerDelegate {
+    private var flipImages = [UIImage]()
     private var refreshView: SWRefresh?
     private var flipLayer: SWFlipLayer?
+    private var flipToTopLayer: SWFlipToTopLayer?
     private(set) var currentPage: UIView!
     public private(set) var pageIndex = 0
     public var delegate: SWFlipBoardDelegate!
@@ -85,6 +87,11 @@ public class SWFlipBoard: UIView, UIGestureRecognizerDelegate {
                     flipNextPage.isHidden = false
                     self!.currentPage = flipNextPage
                     self!.pageIndex = nextIndex
+                    if flipDirection == .up {
+                        self!.flipImages.append(currentPageImage)
+                    } else {
+                        self!.flipImages.removeLast()
+                    }
                 } else {
                     self!.addSubview(self!.currentPage)
                     flipNextPage.removeFromSuperview()
@@ -93,6 +100,24 @@ public class SWFlipBoard: UIView, UIGestureRecognizerDelegate {
             keyWindow.addSubview(flipLayer!)
         }
         flipLayer?.flip(pan)
+    }
+    
+    public func flipToTop() {
+        guard pageIndex > 0, flipImages.count > 0 else {
+            return
+        }
+        let nextPageImage = SWScreenshotsTool.getScreenshots(at: self)
+        flipImages.append(nextPageImage)
+        flipToTopLayer = SWFlipToTopLayer(frame: bounds, images: flipImages)
+        keyWindow.addSubview(flipToTopLayer!)
+        flipToTopLayer?.flipToTop()
+        flipToTopLayer?.complete = {[unowned self] in
+            self.currentPage?.removeFromSuperview()
+            self.currentPage = delegate.flipBoard(self, pageAt: 0)
+            self.addSubview(self.currentPage!)
+            self.pageIndex = 0
+            flipImages.removeAll()
+        }
     }
     
     private func handleRefreshAction(with pan: UIPanGestureRecognizer) {

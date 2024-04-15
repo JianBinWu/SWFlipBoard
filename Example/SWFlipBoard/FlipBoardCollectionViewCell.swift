@@ -11,7 +11,7 @@ import SWFlipBoard
 
 class FlipBoardCollectionViewCell: UICollectionViewCell {
     var flipBoard: SWFlipBoard!
-    var headerView: HeaderView!
+    var title: String!
     
     override init(frame: CGRect) {
         super.init(frame: .zero)

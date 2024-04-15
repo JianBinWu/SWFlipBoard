@@ -52,4 +52,11 @@ class TabBarController: UITabBarController {
             addChildViewController(nav)
         }
     }
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        var selectItem = tabBar.items!.firstIndex(of: item)!
+        if selectItem == 0 {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "flipToTop"), object: nil)
+        }
+    }
 }
